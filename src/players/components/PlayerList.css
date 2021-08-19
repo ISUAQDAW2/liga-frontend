@@ -1,0 +1,18 @@
+.place-list {
+  list-style: none;
+  margin: 1rem auto;
+  padding: 0;
+  /* width: 40rem;
+  max-width: 80rem; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.child {
+  /* flex: 1 0 21%; /* explanation below */
+
+  flex-basis: 21%;
+}
