@@ -39,6 +39,11 @@ const NavLinks = () => {
           </li>
         )}
         <li>
+          <NavLink to="/buscador" exact>
+            Buscador
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/primeradivision" exact>
             1ª División
           </NavLink>

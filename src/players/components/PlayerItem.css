@@ -3,20 +3,81 @@
   margin: 1rem 1rem;
 }
 
-.barcelona-item__content {
+.card.barcelona-item__content {
+  padding: 0 !important;
+  background-image: url("https://i.imgur.com/6Jk8WR3.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100% !important;
+  background-position: center !important;
+}
+
+.card.elche-item__content {
+  padding: 0 !important;
+  background-image: url("https://i.imgur.com/SxAZc3p.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100% !important;
+  background-position: center !important;
+}
+
+.card.milan-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/6Jk8WR3.jpg");
-  background-color: #726969;
+  background-image: url("https://i.imgur.com/ADDZvQ5.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   background-position: center;
 }
 
-.elche-item__content {
+.card.madrid-item__content {
   padding: 0;
-  background-image: url("../../icons/ELCHEWALL.jpg");
-  background-color: #726969;
+  background-image: url("https://i.imgur.com/4mV5sJJ.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+}
+
+.card.cordoba-item__content {
+  padding: 0;
+  background-image: url("https://i.imgur.com/NMc6ZuH.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+}
+
+.card.psg-item__content {
+  padding: 0;
+  background-image: url("https://i.imgur.com/u3BOxOw.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+}
+
+.card.cali-item__content {
+  padding: 0;
+  background-image: url("https://i.imgur.com/r1NTrN8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+}
+
+.card.almeria-item__content {
+  padding: 0;
+  background-image: url("https://i.imgur.com/bLbCKu1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+}
+
+.card.freeagent-item__content {
+  padding: 0;
+  background-image: url("https://i.imgur.com/kPx8oFr.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -49,9 +110,9 @@
 }
 
 .place-item__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 .place-item__info h2,

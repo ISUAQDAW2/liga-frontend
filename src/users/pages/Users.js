@@ -19,7 +19,7 @@ const Users = () => {
         );
 
         setLoadedUsers(
-          responseData.users.filter((user) => user.equipo !== "Sin equipo")
+          responseData.users /* .filter((user) => user.equipo !== "Sin equipo") */
         );
       } catch (err) {}
     };

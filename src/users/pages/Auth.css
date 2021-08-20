@@ -1,15 +1,15 @@
 .authentication__header {
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
-.authentication {
-  width: 90%;
-  max-width: 25rem;
-  margin: 7rem auto;
-  text-align: center;
+.card.authentication {
+  width: 90% !important;
+  max-width: 25rem !important;
+  margin: 7rem auto !important;
+  text-align: center !important;
 }
 
-.authentication form {
+.card.authentication form {
   margin-bottom: 1rem;
 }

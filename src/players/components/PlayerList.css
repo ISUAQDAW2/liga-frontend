@@ -12,7 +12,9 @@
 }
 
 .child {
-  /* flex: 1 0 21%; /* explanation below */
-
   flex-basis: 21%;
+}
+
+h2 {
+  padding: 1rem;
 }

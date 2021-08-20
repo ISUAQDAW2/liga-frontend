@@ -5,26 +5,13 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-//import Users from "./users/pages/Users";
-//import NewPlayer from "./players/pages/NewPlayer";
-//import UserPlayers from "./players/pages/UserPlayers";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
-//import UsersPrimera from "./users/pages/UsersPrimera";
-//import UsersSegunda from "./users/pages/UsersSegunda";
-//import UsersTercera from "./users/pages/UsersTercera";
-//import MercadoPlayers from "./players/pages/MercadoPlayers";
-//import UpdatePlayer from "./players/pages/UpdatePlayer";
-//import Auth from "./users/pages/Auth";
-//import UsersCuarta from "./users/pages/UsersCuarta";
 import { AuthContext } from "./shared/context/auth-context";
-/* import OfertasRealizadas from "./ofertas/pages/OfertasRealizadas";
-import OfertasRecibidas from "./ofertas/pages/OfertasRecibidas"; */
 import { useAuth } from "./shared/hooks/auth-hook";
 
 const Users = React.lazy(() => import("./users/pages/Users"));
-const NewPlayer = React.lazy(() => import("./players/pages/NewPlayer"));
-const UpdatePlayer = React.lazy(() => import("./players/pages/UpdatePlayer"));
+const SearchPlayer = React.lazy(() => import("./players/pages/SearchPlayer"));
 const UsersPrimera = React.lazy(() => import("./users/pages/UsersPrimera"));
 const UsersSegunda = React.lazy(() => import("./users/pages/UsersSegunda"));
 const UsersTercera = React.lazy(() => import("./users/pages/UsersTercera"));
@@ -55,7 +42,7 @@ const App = () => {
   } = useAuth();
   let routes;
 
-  if (token && userTeam !== "Sin equipo") {
+  if (token /* && userTeam !== "Sin equipo" */) {
     routes = (
       <Switch>
         <Route path="/" exact>
@@ -70,11 +57,8 @@ const App = () => {
         <Route path="/get/muro" exact>
           <TransferWall></TransferWall>
         </Route>
-        <Route path="/players/new" exact>
-          <NewPlayer></NewPlayer>
-        </Route>
-        <Route path="/players/:playerId">
-          <UpdatePlayer></UpdatePlayer>
+        <Route path="/buscador" exact>
+          <SearchPlayer></SearchPlayer>
         </Route>
         <Route path="/primeradivision" exact>
           <UsersPrimera></UsersPrimera>
@@ -102,6 +86,9 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <Users></Users>
+        </Route>
+        <Route path="/buscador" exact>
+          <SearchPlayer></SearchPlayer>
         </Route>
         <Route path="/primeradivision" exact>
           <UsersPrimera></UsersPrimera>

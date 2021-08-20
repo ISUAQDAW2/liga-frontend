@@ -37,6 +37,11 @@
 
 .modal__footer {
   padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
 }
 
 @media (min-width: 768px) {

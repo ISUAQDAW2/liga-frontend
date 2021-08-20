@@ -492,7 +492,7 @@ const PlayerItem = (props) => {
           header="Ofertas recibidas"
           contentClass="place-item__modal-content"
           footerClass="place-item__modal-actions"
-          footer={<Button onClick={closeVerOfertasHandler}>Close</Button>}
+          footer={<Button onClick={closeVerOfertasHandler}>CERRAR</Button>}
         >
           <div className="map-container">
             <OfertasList
@@ -564,12 +564,12 @@ const PlayerItem = (props) => {
       <Modal
         show={showConfirmOfertaModal}
         onCancel={cancelOfertaHandler}
-        header="Are you sure?"
+        header="¿Fichar gratis?"
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>
             <Button inverse onClick={cancelOfertaHandler}>
-              CANCEL
+              CANCELAR
             </Button>
           </React.Fragment>
         }
@@ -646,7 +646,7 @@ const PlayerItem = (props) => {
             footer={
               <React.Fragment>
                 <Button inverse onClick={cancelOfertaHandler}>
-                  CANCEL
+                  CANCELAR
                 </Button>
               </React.Fragment>
             }
@@ -684,7 +684,7 @@ const PlayerItem = (props) => {
         footer={
           <React.Fragment>
             <Button inverse onClick={cancelOfertaHandler}>
-              CANCEL
+              CANCELAR
             </Button>
           </React.Fragment>
         }
@@ -718,7 +718,21 @@ const PlayerItem = (props) => {
           className={
             props.team === "FC Barcelona"
               ? "barcelona-item__content"
-              : "elche-item__content"
+              : props.team === "Elche CF"
+              ? "elche-item__content"
+              : props.team === "AC Milan"
+              ? "milan-item__content"
+              : props.team === "Real Madrid"
+              ? "madrid-item__content"
+              : props.team === "Deportivo Cali"
+              ? "cali-item__content"
+              : props.team === "Córdoba CF"
+              ? "cordoba-item__content"
+              : props.team === "PSG"
+              ? "psg-item__content"
+              : props.team === "UD Almería"
+              ? "almeria-item__content"
+              : "freeagent-item__content"
           }
         >
           {isLoading && <LoadingSpinner asOverlay></LoadingSpinner>}
