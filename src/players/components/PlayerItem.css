@@ -9,69 +9,77 @@
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100% !important;
+  min-width: 20rem;
   background-position: center !important;
 }
 
 .card.elche-item__content {
   padding: 0 !important;
-  background-image: url("https://i.imgur.com/SxAZc3p.jpg") !important;
+  background-image: url("https://imgur.com/1IKZKOq.jpg") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100% !important;
+  min-width: 20rem;
   background-position: center !important;
 }
 
 .card.milan-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/ADDZvQ5.jpg");
+  background-image: url("https://imgur.com/lvwvIa1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
 .card.madrid-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/4mV5sJJ.jpg");
+  background-image: url("https://imgur.com/V9yfbjl.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
 .card.cordoba-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/NMc6ZuH.jpg");
+  background-image: url("https://imgur.com/whr318S.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
 .card.psg-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/u3BOxOw.jpg");
+  background-image: url("https://imgur.com/i9vCXVR.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
 .card.cali-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/r1NTrN8.jpg");
+  background-image: url("https://imgur.com/X2ilu1W.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
 .card.almeria-item__content {
   padding: 0;
-  background-image: url("https://i.imgur.com/bLbCKu1.jpg");
+  background-image: url("https://imgur.com/ab4VRzh.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
@@ -81,6 +89,26 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  min-width: 20rem;
+  background-position: center;
+}
+
+.card.alcorcon-item__content {
+  padding: 0;
+  background-image: url("https://imgur.com/bnTHI2l.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-width: 20rem;
+  background-position: center;
+}
+.card.newManager-item__content {
+  padding: 0;
+  background-image: url("https://imgur.com/3QeEjgW.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-width: 20rem;
   background-position: center;
 }
 
@@ -263,15 +291,36 @@ h4 {
 .descriptive-img {
   margin-right: 0.4rem;
   margin-top: 0.2rem;
+  width: 100%;
 }
 
 .money-img {
   margin-left: 0.3rem;
   margin-top: 0.2rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .place-item__image {
     height: 20rem;
+  }
+}
+
+@media (max-width: 446px) {
+  .vital-info {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 8rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .container-marketValue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-marketValue {
+    /* padding: 0rem;
+    margin-top: -3rem; */
   }
 }

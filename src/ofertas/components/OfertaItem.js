@@ -18,6 +18,7 @@ const OfertaItem = (props) => {
 
   const cancelDeleteHandler = () => {
     setShowConfirmModal(false);
+    setShowRechazarModal(false);
   };
   const showDeleteWarningHandler = () => {
     setShowConfirmModal(true);
@@ -65,10 +66,18 @@ const OfertaItem = (props) => {
       const responsePlayer = await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/players/get/${props.playerId}`
       );
+      await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/players/${props.playerId}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
       const now = Date.now();
       const Expires = now + addingMiliseconds;
       await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/players",
+        `${process.env.REACT_APP_BACKEND_URL}/players/${props.playerId}`,
         "POST",
         JSON.stringify({
           title: responsePlayer.player.title,
@@ -87,14 +96,7 @@ const OfertaItem = (props) => {
           Authorization: "Bearer " + auth.token,
         }
       );
-      await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/players/${props.playerId}`,
-        "DELETE",
-        null,
-        {
-          Authorization: "Bearer " + auth.token,
-        }
-      );
+
       const date = new Date();
       const day = date.getDate();
       const month = date.getMonth() + 1;

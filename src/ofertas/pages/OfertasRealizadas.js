@@ -27,6 +27,12 @@ const OfertasRealizadas = () => {
     };
     fetchPlayers();
   }, [sendRequest, auth.userId, update]);
+
+  const playerDeletedHandler = (deletedPlayerId) => {
+    setLoadedPlayers((prevPlayers) =>
+      prevPlayers.filter((player) => player.id !== deletedPlayerId)
+    );
+  };
   const updateHandler = () => {
     setUpdate(!update);
   };
@@ -41,7 +47,11 @@ const OfertasRealizadas = () => {
         </div>
       )}
       {!isLoading && loadedPlayers && (
-        <PlayerList items={loadedPlayers} onUpdate={updateHandler} />
+        <PlayerList
+          items={loadedPlayers}
+          onUpdate={updateHandler}
+          onDeletePlayer={playerDeletedHandler}
+        />
       )}
     </React.Fragment>
   );

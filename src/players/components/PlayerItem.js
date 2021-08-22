@@ -132,9 +132,10 @@ const PlayerItem = (props) => {
   };
 
   const confirmFreeBuyHandler = async () => {
+    setShowFreeBuyModal(false);
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/players/delete/${props.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/players/delete/${props.id}/${auth.userId}`,
         "DELETE",
         null,
         {
@@ -144,7 +145,7 @@ const PlayerItem = (props) => {
       const now = Date.now();
       const Expires = now + addingMiliseconds;
       await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/players",
+        `${process.env.REACT_APP_BACKEND_URL}/players/${props.id}`,
         "POST",
         JSON.stringify({
           title: props.title,
@@ -209,7 +210,7 @@ const PlayerItem = (props) => {
       const Expires = now + addingMiliseconds;
       const discardExpiresDate = now + weekMiliseconds;
       await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/players/discarded",
+        `${process.env.REACT_APP_BACKEND_URL}/players/discarded/${auth.userId}`,
         "POST",
         JSON.stringify({
           title: props.title,
@@ -359,10 +360,16 @@ const PlayerItem = (props) => {
           Authorization: "Bearer " + auth.token,
         }
       );
+      await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/players/${props.id}`,
+        "DELETE",
+        null,
+        { Authorization: "Bearer " + auth.token }
+      );
       const now = Date.now();
       const Expires = now + addingMiliseconds;
       await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/players",
+        `${process.env.REACT_APP_BACKEND_URL}/players/${props.id}`,
         "POST",
         JSON.stringify({
           title: props.title,
@@ -381,12 +388,7 @@ const PlayerItem = (props) => {
           Authorization: "Bearer " + auth.token,
         }
       );
-      await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/players/${props.id}`,
-        "DELETE",
-        null,
-        { Authorization: "Bearer " + auth.token }
-      );
+
       const date = new Date();
       const day = date.getDate();
       const month = date.getMonth() + 1;
@@ -732,7 +734,11 @@ const PlayerItem = (props) => {
               ? "psg-item__content"
               : props.team === "UD Almería"
               ? "almeria-item__content"
-              : "freeagent-item__content"
+              : props.team === "Sin equipo"
+              ? "freeagent-item__content"
+              : props.team === "AD Alcorcón"
+              ? "alcorcon-item__content"
+              : "newManager-item__content"
           }
         >
           {isLoading && <LoadingSpinner asOverlay></LoadingSpinner>}
@@ -820,7 +826,8 @@ const PlayerItem = (props) => {
           <div className="place-item__actions">
             {auth.isLoggedIn &&
               auth.userId !== props.creatorId &&
-              props.team !== "Sin equipo" && (
+              /* props.team !== "Sin equipo" && */
+              props.creatorName !== "Agente Libre" && (
                 <Button
                   danger
                   onClick={showClausulaWarningHandler}
@@ -829,21 +836,24 @@ const PlayerItem = (props) => {
                   PAGAR CLÁUSULA
                 </Button>
               )}
-            {auth.isLoggedIn && props.team === "Sin equipo" && (
-              <Button
-                danger
-                onClick={showFreeBuyWarningHandler}
-                disabled={
-                  auth.userId === props.ownerDiscard &&
-                  ahora < props.discardExpiresDate
-                }
-              >
-                FICHAR GRATIS
-              </Button>
-            )}
+            {auth.isLoggedIn &&
+              props.team === "Sin equipo" &&
+              props.creatorName === "Agente Libre" && (
+                <Button
+                  danger
+                  onClick={showFreeBuyWarningHandler}
+                  disabled={
+                    auth.userId === props.ownerDiscard &&
+                    ahora < props.discardExpiresDate
+                  }
+                >
+                  FICHAR GRATIS
+                </Button>
+              )}
             {auth.isLoggedIn &&
               auth.userId !== props.creatorId &&
-              props.team !== "Sin equipo" && (
+              /* props.team !== "Sin equipo" && */
+              props.creatorName !== "Agente Libre" && (
                 <Button onClick={openOfertaHandler}>
                   {loadedOfertas &&
                   loadedOfertas.filter(
@@ -861,7 +871,8 @@ const PlayerItem = (props) => {
               loadedOfertas.filter(
                 (oferta) => oferta.ofertanteId === auth.userId
               ).length > 0 &&
-              props.team !== "Sin equipo" && (
+              /* props.team !== "Sin equipo" && */
+              props.creatorName !== "Agente Libre" && (
                 <Button onClick={retirarOfertaHandler}>RETIRAR OFERTA</Button>
               )}
             {auth.userId === props.creatorId && (
