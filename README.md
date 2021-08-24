@@ -2,7 +2,7 @@
 
 Frontend SPA for LIGA FIFEROS project, a FIFA online manager competition developed using the MERN stack. Click on the image to be redirected to a video showing how the web application works.
 
-[![Alt text](https://imgur.com/uE64euQ.jpg)](https://www.youtube.com/watch?v=7gln2J7ILmw)
+[![Alt text](https://imgur.com/uE64euQ.jpg)](https://www.youtube.com/watch?v=559bM5MVNcQ)
 
-Link: ligafiferos.web.app
+Live demo here: ligafiferos.web.app
 
