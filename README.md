@@ -4,5 +4,5 @@ Frontend SPA for LIGA FIFEROS project, a FIFA online manager competition develop
 
 [![Alt text](https://imgur.com/uE64euQ.jpg)](https://www.youtube.com/watch?v=559bM5MVNcQ)
 
-Live demo here: [GitHub Pages](ligafiferos.web.app).
+Live demo here: [LIGA FIFEROS](https://ligafiferos.web.app/).
 
