@@ -74,8 +74,12 @@ const SearchPlayer = () => {
     setSearchFreeAgent(event.target.value);
   };
 
-  if (searchMaxClause === "" && searchMinClause === "") {
+  if (searchMaxClause === "") {
     setSearchMaxClause("999999999999");
+  }
+
+  if (searchMinClause === "") {
+    setSearchMinClause("0");
   }
 
   return (
