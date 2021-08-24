@@ -14,6 +14,9 @@ const SearchPlayer = () => {
   const auth = useContext(AuthContext);
   const [searchField, setSearchField] = useState("");
   const [searchPosition, setSearchPosition] = useState("");
+  const [searchMaxClause, setSearchMaxClause] = useState("999999999999");
+  const [searchMinClause, setSearchMinClause] = useState("0");
+  const [searchFreeAgent, setSearchFreeAgent] = useState("");
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -23,6 +26,14 @@ const SearchPlayer = () => {
         );
 
         setLoadedPlayers(responseData.players);
+        /* const userHasOffers = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+        );
+
+        var existing = localStorage.getItem("userData");
+        existing = JSON.parse(existing);
+        existing.hasOffers = userHasOffers;
+        localStorage.setItem("userData", JSON.stringify(existing)); */
       } catch (err) {}
     };
     fetchUsers();
@@ -37,6 +48,12 @@ const SearchPlayer = () => {
     setUpdate(!update);
   };
 
+  /*  const pageCount = Math.ceil(users.length / usersPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  }; */
+
   const onSearchChange = (event) => {
     setSearchField(event.target.value);
   };
@@ -44,6 +61,22 @@ const SearchPlayer = () => {
   const onSearchPosition = (event) => {
     setSearchPosition(event.target.value);
   };
+
+  const onSearchMaxClause = (event) => {
+    setSearchMaxClause(event.target.value);
+  };
+
+  const onSearchMinClause = (event) => {
+    setSearchMinClause(event.target.value);
+  };
+
+  const onSearchFreeAgent = (event) => {
+    setSearchFreeAgent(event.target.value);
+  };
+
+  if (searchMaxClause === "" && searchMinClause === "") {
+    setSearchMaxClause("999999999999");
+  }
 
   return (
     <React.Fragment>
@@ -61,6 +94,9 @@ const SearchPlayer = () => {
           <SearchBox
             searchChange={onSearchChange}
             searchPosition={onSearchPosition}
+            searchMaxClause={onSearchMaxClause}
+            searchMinClause={onSearchMinClause}
+            searchFreeAgent={onSearchFreeAgent}
           />
           <PlayerList
             items={loadedPlayers.filter((player) => {
@@ -70,7 +106,10 @@ const SearchPlayer = () => {
                   .includes(searchField.toLowerCase()) &&
                 player.address
                   .toLowerCase()
-                  .includes(searchPosition.toLowerCase())
+                  .includes(searchPosition.toLowerCase()) &&
+                player.clausula >= searchMinClause &&
+                player.clausula <= searchMaxClause &&
+                player.creatorName.includes(searchFreeAgent)
               );
             })}
             onUpdate={updateHandler}

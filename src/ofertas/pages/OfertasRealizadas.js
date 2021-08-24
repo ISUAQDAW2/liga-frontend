@@ -6,7 +6,7 @@ import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 
-const OfertasRealizadas = () => {
+const OfertasRealizadas = (props) => {
   const [loadedPlayers, setLoadedPlayers] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [update, setUpdate] = useState(false);
@@ -23,6 +23,13 @@ const OfertasRealizadas = () => {
             player.ofertas.some((oferta) => oferta.ofertanteId === auth.userId)
           )
         );
+        /* const userHasOffers = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+        );
+        var existing = localStorage.getItem("userData");
+        existing = JSON.parse(existing);
+        existing.hasOffers = userHasOffers;
+        localStorage.setItem("userData", JSON.stringify(existing)); */
       } catch (err) {}
     };
     fetchPlayers();

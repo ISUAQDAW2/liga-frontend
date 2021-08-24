@@ -1,15 +1,19 @@
 .form-control {
-  margin: 1rem 0;
+  margin: 1rem 2rem;
 }
 
 .form-control label,
 .form-control input,
 .form-control textarea {
   display: block;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .form-control label {
-  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useWindowDimensions } from "../../hooks/windowDimensions-hook";
 import MainHeader from "./MainHeader";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
@@ -9,6 +9,7 @@ import "./MainNavigation.css";
 
 const MainNavigation = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+  const { width } = useWindowDimensions();
 
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
@@ -20,7 +21,9 @@ const MainNavigation = () => {
 
   return (
     <React.Fragment>
-      {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
+      {drawerIsOpen && width < 1392 && (
+        <Backdrop onClick={closeDrawerHandler} />
+      )}
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
         <nav className="main-navigation__drawer-nav">
           <NavLinks />

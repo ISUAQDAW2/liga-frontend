@@ -23,6 +23,14 @@ const OfertasRecibidas = () => {
         setLoadedPlayers(
           responseData.players.filter((player) => player.ofertas.length > 0)
         );
+        /* const userHasOffers = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+        );
+
+        var existing = localStorage.getItem("userData");
+        existing = JSON.parse(existing);
+        existing.hasOffers = userHasOffers;
+        localStorage.setItem("userData", JSON.stringify(existing)); */
       } catch (err) {}
     };
     fetchPlayers();

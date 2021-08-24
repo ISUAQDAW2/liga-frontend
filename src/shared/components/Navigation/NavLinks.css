@@ -72,7 +72,7 @@
   }
 }
 
-@media (min-width: 1274px) {
+@media (min-width: 1392px) {
   /*768px min width*/
   .nav-links {
     flex-direction: row;

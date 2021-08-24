@@ -21,6 +21,14 @@ const MercadoPlayers = () => {
         );
 
         setLoadedPlayers(responseData.players);
+        /* const userHasOffers = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+        );
+
+        var existing = localStorage.getItem("userData");
+        existing = JSON.parse(existing);
+        existing.hasOffers = userHasOffers;
+        localStorage.setItem("userData", JSON.stringify(existing)); */
       } catch (err) {}
     };
     fetchUsers();

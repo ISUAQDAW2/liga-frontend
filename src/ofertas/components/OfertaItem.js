@@ -124,6 +124,15 @@ const OfertaItem = (props) => {
           Authorization: "Bearer " + auth.token,
         }
       );
+      /* const userHasOffers = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+      );
+
+      var existing = localStorage.getItem("userData");
+      existing = JSON.parse(existing);
+      existing.hasOffers = userHasOffers;
+      localStorage.setItem("userData", JSON.stringify(existing)); */
+
       props.onDeletePlayer(props.playerId);
     } catch (err) {}
   };
@@ -138,6 +147,15 @@ const OfertaItem = (props) => {
           Authorization: "Bearer " + auth.token,
         }
       );
+      /* const userHasOffers = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+      );
+
+      var existing = localStorage.getItem("userData");
+      existing = JSON.parse(existing);
+      existing.hasOffers = userHasOffers;
+      localStorage.setItem("userData", JSON.stringify(existing)); */
+
       props.onDelete(props.id);
     } catch (err) {}
   };
@@ -153,7 +171,7 @@ const OfertaItem = (props) => {
       <Modal
         show={showConfirmModal}
         onCancel={cancelDeleteHandler}
-        header="¿Confirmar oferta?"
+        header="¿Seguro que quieres aceptar la oferta?"
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>

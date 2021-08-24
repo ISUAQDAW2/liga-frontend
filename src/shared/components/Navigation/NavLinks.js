@@ -18,7 +18,7 @@ const NavLinks = () => {
           </li>
         )}
         {auth.isLoggedIn && (
-          <li>
+          <li className="">
             <NavLink to={`/get/ofertasrecibidas/${auth.userId}`} exact>
               Ofertas recibidas
             </NavLink>

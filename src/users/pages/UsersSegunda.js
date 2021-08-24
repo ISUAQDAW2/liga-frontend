@@ -10,6 +10,7 @@ const UsersSegunda = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedUsers, setLoadedUsers] = useState();
   const auth = useContext(AuthContext);
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -18,6 +19,15 @@ const UsersSegunda = () => {
         );
 
         setLoadedUsers(responseData.users);
+
+        /* const userHasOffers = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/ofertas/get/receivedOffers/${auth.userId}`
+        );
+
+        var existing = localStorage.getItem("userData");
+        existing = JSON.parse(existing);
+        existing.hasOffers = userHasOffers;
+        localStorage.setItem("userData", JSON.stringify(existing)); */
       } catch (err) {}
     };
     fetchUsers();

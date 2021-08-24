@@ -80,7 +80,8 @@ const Auth = () => {
           responseData.presupuesto,
           responseData.name,
           responseData.equipo,
-          responseData.image
+          responseData.image,
+          responseData.hasOffers
         );
       } catch (err) {}
     } else {
@@ -104,7 +105,8 @@ const Auth = () => {
           responseData.presupuesto,
           responseData.name,
           responseData.equipo,
-          responseData.image
+          responseData.image,
+          responseData.hasOffers
         );
       } catch (err) {}
     }
@@ -133,9 +135,9 @@ const Auth = () => {
             element="input"
             id="email"
             type="email"
-            label="E-Mail"
+            label="Correo electrónico"
             validators={[VALIDATOR_EMAIL()]}
-            errorText="Por favor, introduce un e-mail válido."
+            errorText="Por favor, introduce un correo electrónico válido."
             onInput={inputHandler}
           />
           <Input

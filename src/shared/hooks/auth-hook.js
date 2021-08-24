@@ -9,6 +9,7 @@ export const useAuth = () => {
   const [userName, setUserName] = useState(false);
   const [userTeam, setUserTeam] = useState(false);
   const [userImage, setUserImage] = useState(false);
+  const [hasOffers, setHasOffers] = useState(false);
 
   let isTokenExpired;
   isTokenExpired = (token) => {
@@ -20,13 +21,14 @@ export const useAuth = () => {
   };
 
   const login = useCallback(
-    (uid, token, uPresupuesto, uName, uTeam, uImage) => {
+    (uid, token, uPresupuesto, uName, uTeam, uImage, uHasOffers) => {
       setToken(token);
       setUserId(uid);
       setUserPresupuesto(uPresupuesto);
       setUserName(uName);
       setUserTeam(uTeam);
       setUserImage(uImage);
+      setHasOffers(uHasOffers);
       localStorage.setItem(
         "userData",
         JSON.stringify({
@@ -37,6 +39,7 @@ export const useAuth = () => {
           userName: uName,
           equipo: uTeam,
           image: uImage,
+          hasOffers: uHasOffers,
         })
       );
     },
@@ -50,6 +53,7 @@ export const useAuth = () => {
     setUserName(null);
     setUserTeam(null);
     setUserImage(null);
+    setHasOffers(null);
     localStorage.removeItem("userData");
   }, []);
 
@@ -75,7 +79,8 @@ export const useAuth = () => {
           storedData.presupuesto,
           storedData.userName,
           storedData.equipo,
-          storedData.image
+          storedData.image,
+          storedData.hasOffers
         );
       }
     }
@@ -90,5 +95,6 @@ export const useAuth = () => {
     userName,
     userTeam,
     userImage,
+    hasOffers,
   };
 };

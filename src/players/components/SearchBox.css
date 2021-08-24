@@ -1,8 +1,8 @@
 .search {
   border: 1px solid rgb(202, 202, 202);
   border-radius: 20px;
-  height: 3rem;
-  width: 16rem;
+  height: 3.3rem;
+  width: 12rem;
   padding: 1rem;
   margin: 1rem;
   outline: 0;
@@ -12,7 +12,18 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-
+.label-container label {
+  text-align: center;
+  color: white;
+  /* margin-bottom: -0.5rem; */
+}
+.label-container {
+  /* margin-top: -1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .search-container {
   display: flex;
   align-items: center;

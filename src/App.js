@@ -39,6 +39,7 @@ const App = () => {
     userName,
     userTeam,
     userImage,
+    hasOffers,
   } = useAuth();
   let routes;
 
@@ -124,6 +125,7 @@ const App = () => {
         userImage: userImage,
         login: login,
         logout: logout,
+        hasOffers: hasOffers,
       }}
     >
       <Router>
