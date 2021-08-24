@@ -567,7 +567,7 @@ const PlayerItem = (props) => {
       <Modal
         show={showConfirmOfertaModal}
         onCancel={cancelOfertaHandler}
-        header="¿Fichar gratis?"
+        header="¿Enviar oferta?"
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>
