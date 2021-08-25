@@ -18,7 +18,7 @@ import {
 } from "../../shared/util/validators";
 
 const PlayerItem = (props) => {
-  const addingMiliseconds = 604800000;
+  const addingMiliseconds = 1324;
   const ahora = Date.now();
   const playerId = props.id;
   const [formState, inputHandler] = useForm(
